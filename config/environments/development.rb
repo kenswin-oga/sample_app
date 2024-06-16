@@ -3,6 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.reload_classes_only_on_change = true
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -35,6 +36,9 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+
+  config.reload_classes_only_on_change = true
+  config.file_watcher = ActiveSupport::FileUpdateChecker
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
